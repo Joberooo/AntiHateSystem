@@ -14,7 +14,7 @@ class Collector:
         self.__hateanalyzer = HateAnalyzer()
         self.__run = False
 
-    def start(self):
+    async def start(self):
         self.__run = True
         while self.__run:
             await asyncio.sleep(self.__interval)
