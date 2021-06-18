@@ -1,0 +1,74 @@
+#go{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D2353A;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    box-shadow: 0 0 20px 10px #D2353A;
+    border: 10px solid #351E29;
+    opacity: 0.6;
+    transition: opacity 0.15s, background-color 0.15s, box-shadow 0.15s, width 0.15s, height 0.15s;
+}
+
+#go:hover{
+    box-shadow: 0 0 20px 10px #F5F3F5;
+    background: #77B4A0;
+    opacity: 1;
+    cursor: pointer;
+    width: 295px;
+    height: 295px;
+}
+
+#go #circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 7px #351E29;
+    transition: box-shadow 0.15s;
+}
+
+#go:hover #circle{
+    box-shadow: 0 0 0 7px #F5F3F5;
+}
+
+#go #circle #line{
+    background-color: #351E29;
+    width: 7px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 10px #D2353A;
+    position: relative;
+    top: -30px;
+    transition: box-shadow 0.15s, background-color 0.15s;
+}
+
+#go:hover #circle #line{
+    box-shadow: 0 0 0 10px #77B4A0;
+    background-color: #F5F3F5;
+}
+
+#go #hateText{
+    position: absolute;
+    top: 100px;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 3em;
+    color: #D2353A;
+    margin: 0 auto;
+}
+
+#go #hateText p{
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#go:hover #hateText p:first-child{
+    color: #77B4A0;
+}
