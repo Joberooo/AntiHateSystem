@@ -11,6 +11,7 @@ class TextRecognition:
     def recognize(self):
         ScreenCapture().grab(self.imagePathToRecognition)
         pytesseract.pytesseract.tesseract_cmd = self.tesseractPath
-        textFromImage = []
-        textFromImage.append(pytesseract.image_to_string(self.imagePathToRecognition).split("\n"))
+
+        textFromImage = (pytesseract.image_to_string(self.imagePathToRecognition).split("\n"))
+
         return textFromImage
