@@ -1,5 +1,8 @@
 {
     "server_email": "coddiershack4lem@gmail.com",
     "server_pass": "test12345test",
-    "user_email": "norbert.waszkowiak@gmail.com"
+    "user_email": "norbert.waszkowiak@gmail.com",
+    "csv_file_name": "../data.csv",
+    "collect_interval": 10,
+    "analisys_interval": 10
 }

@@ -1,4 +1,5 @@
 from textRecognitionFromImage.TextRecognition import TextRecognition
+
 from hatesonar import Sonar
 
 

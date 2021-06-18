@@ -5,7 +5,7 @@ if __name__ == '__main__':
     tesseractPath = file.read()
     file.close()
 
-    textRecognition = TextRecognition(tesseractPath, imagePathToRecognition)
+    textRecognition = TextRecognition(tesseractPath)
     list = TextRecognition.recognize(textRecognition)
     for element in list:
         print(element)
