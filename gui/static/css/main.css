@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Regular.ttf') format('truetype'),
+    url('Lato-Bold.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  }
+
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(30deg, #351E29 25%, #061B2C 90%);
+    color: #F5F3F5;
+    font: 24px "Lato";
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: #F5F3F5;
+}
+
+li{
+    list-style: none;
+}

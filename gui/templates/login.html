@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="../static/css/login.css">
+{% endblock stylesheet %}
+
+{% block content %}
+<div id="loginContent">
+    <div id="loginData">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+    </div>
+    <a href="#">
+        <div id="loginButton">
+            Sign in
+        </div>
+    </a>
+    <i>
+        Please enter a valid Username & Password
+    </i>
+</div>
+{% endblock content %}
