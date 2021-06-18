@@ -29,7 +29,7 @@ class Collector:
     def stop(self):
         self.__run = False
 
-    async def __collect_data(self):
+    def __collect_data(self):
         stats = self.__hateanalyzer.get_stats()
         try:
             df_old = pd.read_csv(self.__data_path)
