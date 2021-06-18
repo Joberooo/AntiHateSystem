@@ -1,3 +1,4 @@
-from hatesonar import Sonar
-sonar = Sonar()
-sonar.ping(text="At least I'm not a nigger")
+from hate_analyzer import HateAnalyzer
+
+analyzer = HateAnalyzer()
+stats = analyzer.get_stats()
