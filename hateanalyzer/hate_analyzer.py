@@ -1,7 +1,7 @@
 from textRecognitionFromImage.TextRecognition import TextRecognition
 
 from hatesonar import Sonar
-
+import re
 
 class HateAnalyzer:
     def __init__(self):
@@ -17,13 +17,15 @@ class HateAnalyzer:
         output_dicts = []
         text_rows = self.text_rec.recognize()
         for row in text_rows:
-            row_data = self.sonar.ping(row)
-            output_data = {}
-            for analyze_class in row_data['classes']:
-                output_data[analyze_class['class_name']] = \
-                    analyze_class['confidence']
-            output_data['text'] = row_data['text']
-            output_dicts.append(output_data)
+            is_not_whitespace = re.search("\S\S\S", row)
+            if is_not_whitespace:
+                row_data = self.sonar.ping(row)
+                output_data = {}
+                for analyze_class in row_data['classes']:
+                    output_data[analyze_class['class_name']] = \
+                        analyze_class['confidence']
+                output_data['text'] = row_data['text']
+                output_dicts.append(output_data)
 
         return output_dicts
 
