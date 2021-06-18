@@ -3,6 +3,7 @@ import threading
 from datetime import datetime, timedelta
 from time import sleep
 
+from email_sender.email_sender import EmailSender
 from settings.settings import get_parm
 import pandas as pd
 
@@ -14,6 +15,7 @@ class Analysis:
         self.__path_to_data = get_parm('csv_file_name')
         self.__limit_hate_ratio = get_parm('limit_hate_ratio')
         self.__limit_hate_sum = get_parm('limit_hate_sum')
+        self.__email_sender = EmailSender()
         self.__run = False
 
     def start(self):
@@ -40,7 +42,8 @@ class Analysis:
             milliseconds=10)) if self.__last_datatime is None else self.__last_datatime
         mask = (df['Time'] > last) & (df['Time'] <= newest)
         sub_df = df.loc[mask]
-        self.__analise_sub_data(sub_df)
+        if self.__analise_sub_data(sub_df):
+            self.__email_sender.try_send("Temat","nuu nu nu nu")
 
     def __analise_sub_data(self, df: pd.DataFrame):
         hate_sum = 0
