@@ -131,8 +131,6 @@ dmypy.json
 # .idea directiory
 .idea/
 
+*.png
 *.txt
-textRecognitionFromImage/recognizedPhoto.png
-analysis/woj.csv
-data.csv
-collect/recognizedPhoto.png
+*.csv

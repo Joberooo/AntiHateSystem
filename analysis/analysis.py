@@ -13,7 +13,7 @@ class Analysis:
         self.__interval = get_parm('analysis_interval')
         self.__path_to_data = get_parm('csv_file_name')
         self.__limit_hate_ratio = get_parm('limit_hate_ratio')
-        self.__limit_hate_sum = get_parm('limit_hate_value')
+        self.__limit_hate_sum = get_parm('limit_hate_sum')
         self.__run = False
 
     def start(self):
