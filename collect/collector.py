@@ -20,7 +20,9 @@ class Collector:
         def loop():
             while self.__run:
                 time.sleep(self.__interval)
-                self.__collect_data()
+                t = threading.Thread(target=self.collect_data(), name="collect_data")
+                t.daemon = True
+                t.start()
         self.__run = True
         t = threading.Thread(target=loop, name="loop")
         t.daemon = True
@@ -29,7 +31,7 @@ class Collector:
     def stop(self):
         self.__run = False
 
-    def __collect_data(self):
+    def collect_data(self):
         stats = self.__hateanalyzer.get_stats()
         try:
             df_old = pd.read_csv(self.__data_path)

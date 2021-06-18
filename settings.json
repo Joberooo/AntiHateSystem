@@ -3,6 +3,6 @@
     "server_pass": "test12345test",
     "user_email": "norbert.waszkowiak@gmail.com",
     "csv_file_name": "../data.csv",
-    "collect_interval": 10,
-    "analysis_interval": 30
+    "collect_interval": 5,
+    "analysis_interval": 60
 }
