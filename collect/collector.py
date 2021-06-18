@@ -1,4 +1,6 @@
 import asyncio
+import threading
+import time
 
 from hateanalyzer.hate_analyzer import HateAnalyzer
 from settings.settings import get_parm
@@ -14,11 +16,15 @@ class Collector:
         self.__hateanalyzer = HateAnalyzer()
         self.__run = False
 
-    async def start(self):
+    def start(self):
+        def loop():
+            while self.__run:
+                time.sleep(self.__interval)
+                self.__collect_data()
         self.__run = True
-        while self.__run:
-            await asyncio.sleep(self.__interval)
-            self.__collect_data()
+        t = threading.Thread(target=loop, name="loop")
+        t.daemon = True
+        t.start()
 
     def stop(self):
         self.__run = False
