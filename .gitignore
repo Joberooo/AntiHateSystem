@@ -133,6 +133,6 @@ dmypy.json
 
 *.txt
 textRecognitionFromImage/recognizedPhoto.png
-analisys/woj.csv
+analysis/woj.csv
 data.csv
 collect/recognizedPhoto.png
