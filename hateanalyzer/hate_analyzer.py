@@ -21,6 +21,7 @@ class HateAnalyzer:
             for analyze_class in row_data['classes']:
                 output_data[analyze_class['class_name']] = \
                     analyze_class['confidence']
+            output_data['text'] = row_data['text']
             output_dicts.append(output_data)
 
         return output_dicts
