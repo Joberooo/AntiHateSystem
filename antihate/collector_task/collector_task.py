@@ -23,7 +23,7 @@ class CollectorTask:
                 ).start()
 
         self.__run = True
-        t = threading.Thread(
+        threading.Thread(
             target=loop,
             name="CollectorTask",
             daemon=True
