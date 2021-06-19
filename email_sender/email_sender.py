@@ -16,7 +16,7 @@ class EmailSender:
         self.smtpObj.login(self.SYSTEM_MAIL, self.SYSTEM_PASS)
         self.sender = sender
 
-    def try_send(self, records_number: int, subject="#HejtAlert!") -> None:
+    def try_send(self, subject="#HejtAlert!") -> None:
         if not self.receivers: raise Exception("Lack of receivers!")
 
         try:
