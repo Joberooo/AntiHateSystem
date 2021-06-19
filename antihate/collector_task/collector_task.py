@@ -1,12 +1,15 @@
+import string
 import threading
 import time
 import pandas as pd
 from datetime import datetime
 
+from antihate.collector_task.hate_analyzer import HateAnalyzer
+
 
 class CollectorTask:
 
-    def __init__(self, hate_analyzer, path_to_raw_data, interval):
+    def __init__(self, hate_analyzer: HateAnalyzer, path_to_raw_data: string, interval: int):
         self.__interval = interval
         self.__path_to_raw_data = path_to_raw_data
         self.__hate_analyzer = hate_analyzer

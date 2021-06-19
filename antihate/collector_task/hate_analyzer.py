@@ -1,9 +1,11 @@
 from hatesonar import Sonar
 import re
 
+from antihate.collector_task.text_recognition import TextRecognition
+
 
 class HateAnalyzer:
-    def __init__(self, text_recognition, max_list_size):
+    def __init__(self, text_recognition: TextRecognition, max_list_size: int):
         self.__text_rec = text_recognition
         self.__max_list_size = max_list_size
         self.__sonar = Sonar()

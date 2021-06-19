@@ -3,7 +3,7 @@ import pyscreenshot as ImageGrab
 
 
 class ScreenCapture:
-    def __init__(self, image_path:string):
+    def __init__(self, image_path: string):
         self.__image_path = image_path
 
     def grab(self):

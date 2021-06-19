@@ -1,13 +1,17 @@
 import json
+import string
 import threading
 from datetime import timedelta
 from time import sleep
 
 import pandas as pd
 
+from antihate.analysis_task.email_sender import EmailSender
+
 
 class AnalysisTask:
-    def __init__(self, interval, path_to_raw_data, path_to_stats_file,hate_ratio_limit, hate_sum_limit, email_sender):
+    def __init__(self, interval: int, path_to_raw_data: string, path_to_stats_file: string, hate_ratio_limit: float,
+                 hate_sum_limit: int, email_sender: EmailSender):
         self.__last_to_datetime = None
         self.__interval = interval
         self.__path_to_raw_data = path_to_raw_data
@@ -33,7 +37,6 @@ class AnalysisTask:
             name="AnalysisTask",
             daemon=True
         ).start()
-
 
     def stop(self):
         self.__run = False
@@ -87,7 +90,7 @@ class AnalysisTask:
             json.dump(json_data, f, indent=4)
             return None
 
-    def __get_stats(self,df):
+    def __get_stats(self, df):
         rows_with_hate = []
         offensive_language_counter = 0
         hate_speech_counter = 0
