@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="../static/css/settings.css">
+<script type=text/javascript>
+        $(function() {
+          $('a#saveSettings').bind('click', function() {
+              const par1 = document.getElementById("user_email").value;
+              const par2 = document.getElementById("collect_interval").value;
+              const par3 = document.getElementById("analysis_interval").value;
+              const par4 = document.getElementById("limit_hate_ratio").value;
+              const par5 = document.getElementById("limit_hate_sum").value;
+              const par6 = document.getElementById("list_len").value;
+              window.location.href = "/settings/save/" + par1 + "/" + par2 + "/" + par3 + "/" + par4 + "/" + par5 + "/" + par6;
+              alert('Ustawienia zapisane!');
+            return false;
+          });
+        });
+</script>
+{% endblock stylesheet %}
+
+{% block content %}
+<div id="globalContent">
+    <div id="sideBar">
+        <div id="title">
+            <h1>AHS</h1>
+            <h4>Anti Hate System</h4>
+        </div>
+        <ul>
+            <a href="/clientPanel"><li><div class="imgObject"><img src="../static/images/statistic-icon.svg"  alt="statistic-icon"/></div><p>Statystyka</p></li></a>
+            <a href="/hate"><li><div class="imgObject"><img src="../static/images/question-icon.svg"  alt="question-icon"/></div><p>#ogarnijHejt</p></li></a>
+            <a href="/settings" class="activeElement"><li><div class="imgObject"><img src="../static/images/settings-icon.svg"  alt="settings-icon"/></div><p>Ustawienia</p></li></a>
+        </ul>
+        <div id="logOutElement">
+            <a href="/">
+                <img src="../static/images/power.svg"  alt="power-off-icon"/>
+            </a>
+        </div>
+    </div>
+    <div id="sideContent">
+        <div id="flexSideContent">
+            <div id="settingsArea">
+                <div id="settingsData">
+                    <div class="singleData">
+                        <label for="user_email">Mail:</label>
+                        <input type="email" name="user_email" id="user_email" value='{{user_email}}'/>
+                    </div>
+                    <div class="singleData">
+                        <label for="collect_interval">Interwał zbierania hejtu [sekundy]:</label>
+                        <input type="number" name="collect_interval" id="collect_interval" value='{{collect_interval}}' min="1" max="60" step="1"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="analysis_interval">Interwał analizowania hejtu [minuty]:</label>
+                        <input type="number" name="analysis_interval" id="analysis_interval" value='{{analysis_interval}}' min="2" max="360" step="1"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="limit_hate_ratio">Próg klasyfikowania jako hejt:</label>
+                        <input type="number" name="limit_hate_ratio" id="limit_hate_ratio" value='{{limit_hate_ratio}}' min="0.1" max="0.99" step="0.01"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="limit_hate_sum">Próg ilościowy hejtu:</label>
+                        <input type="number" name="limit_hate_sum" id="limit_hate_sum" value='{{limit_hate_sum}}' min="3" max="100" step="1"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="list_len">Liczba zapamiętanych hejtów:</label>
+                        <input type="number" name="list_len" id="list_len" value='{{list_len}}' min="100" max="300" step="10"/>
+                    </div>
+                </div>
+                <a class="button abuse" href=# id=saveSettings>
+                    <div id="saveButton">
+                        Zapisz
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

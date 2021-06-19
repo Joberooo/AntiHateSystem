@@ -5,9 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anti Hate System</title>
     <link rel="stylesheet" href="../static/css/main.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function() {
+          $('a#changeSizeOne').bind('click', function() {
+            $('body').css({
+                    'font-size': '24px'
+            });
+          });
+          $('a#changeSizeTwo').bind('click', function() {
+            $('body').css({
+                    'font-size': '30px'
+            });
+          });
+          $('a#changeSizeThree').bind('click', function() {
+            $('body').css({
+                    'font-size': '34px'
+            });
+          });
+        });
+</script>
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
+    <div id="changeTextSize">
+        <a href="#" id=changeSizeOne>A</a>
+        <a href="#" id=changeSizeTwo>A+</a>
+        <a href="#" id=changeSizeThree>A++</a>
+    </div>
     {% block content %}{% endblock %}
     <footer>
     </footer>

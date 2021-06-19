@@ -1,0 +1,13 @@
+{
+    "server_email": "coddiershack4lem@gmail.com",
+    "server_pass": "test12345test",
+    "user_email": "barczaczek@gmail.com",
+    "csv_file_name": "../tmp/data.csv",
+    "picture_path": "../tmp/picture.png",
+    "stats_file": "../antihate/stats_file.json",
+    "collect_interval": 5,
+    "analysis_interval": 120.0,
+    "limit_hate_ratio": 0.7,
+    "limit_hate_sum": 5,
+    "list_len": 100
+}

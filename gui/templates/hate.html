@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="../static/css/hate.css">
+{% endblock stylesheet %}
+
+{% block content %}
+<div id="globalContent">
+    <div id="sideBar">
+        <div id="title">
+            <h1>AHS</h1>
+            <h4>Anti Hate System</h4>
+        </div>
+        <ul>
+            <a href="/clientPanel"><li><div class="imgObject"><img src="../static/images/statistic-icon.svg"  alt="statistic-icon"/></div><p>Statystyka</p></li></a>
+            <a href="/hate" class="activeElement"><li><div class="imgObject"><img src="../static/images/question-icon.svg"  alt="question-icon"/></div><p>#ogarnijHejt</p></li></a>
+            <a href="/settings"><li><div class="imgObject"><img src="../static/images/settings-icon.svg"  alt="settings-icon"/></div><p>Ustawienia</p></li></a>
+        </ul>
+        <div id="logOutElement">
+            <a href="/">
+                <img src="../static/images/power.svg"  alt="power-off-icon"/>
+            </a>
+        </div>
+    </div>
+    <div id="sideContent">
+
+    </div>
+</div>
+{% endblock content %}

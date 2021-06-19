@@ -26,3 +26,222 @@ a{
 li{
     list-style: none;
 }
+
+#changeTextSize{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    z-index: 999;
+    background-color: #351E29;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0 0 5px #77B4A0;
+}
+
+#changeTextSize #changeSizeOne{
+    font-size: 24px;
+}
+
+#changeTextSize #changeSizeTwo{
+    font-size: 30px;
+}
+
+#changeTextSize #changeSizeThree{
+    font-size: 34px;
+}
+
+#changeTextSize a{
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    padding: 0 10px 0 15px;
+}
+
+#globalContent{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#globalContent #sideBar{
+    width: 17%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #F5F3F5EE;
+    border-right: 5px solid #D2353A;
+    box-shadow: 0 0 15px #5c5c5c;
+    display: block;
+    float: left;
+    position: absolute;
+    left: 0;
+}
+
+#globalContent #sideBar #title{
+    margin: 0;
+    padding: 50px 10px;
+    text-align: center;
+    color: #351E29;
+    box-sizing: border-box;
+    letter-spacing: 5px;
+}
+
+#globalContent #sideBar #title h1{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #351E29;
+}
+
+#globalContent #sideBar #title h4{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    border-bottom: 1px solid #351E29;
+}
+
+#globalContent #sideBar ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#globalContent #sideBar ul a{
+    color: #351E29;
+    transition: color 0.15s;
+}
+
+#globalContent #sideBar ul a:hover{
+    color: #F5F3F5;
+}
+
+#globalContent #sideBar ul .activeElement{
+    color: #F5F3F5;
+}
+
+#globalContent #sideBar ul a li{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.15s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#globalContent #sideBar ul a:hover li{
+    background: #351E29;
+}
+
+#globalContent #sideBar ul .activeElement li{
+    background: #523142;
+}
+
+#globalContent #sideBar ul a li .imgObject{
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #F5F3F500;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+#globalContent #sideBar ul a li .imgObject img{
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: background-color 0.15s;
+}
+
+#globalContent #sideBar ul a:hover li .imgObject{
+    background-color: #D2353A;
+}
+
+#globalContent #sideBar ul a:hover li .imgObject img{
+    filter: invert(100%);
+}
+
+#globalContent #sideBar ul .activeElement li .imgObject{
+    background-color: #e55a60;
+}
+
+#globalContent #sideBar ul .activeElement li .imgObject img{
+    filter: invert(100%);
+}
+
+#globalContent #sideBar ul a li p{
+    width: calc(100% - 60px);
+    height: 60px;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+#globalContent #sideBar #logOutElement{
+    width: 100%;
+    height: 225px;
+    padding: 75px 10px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#globalContent #sideBar #logOutElement a{
+    margin: 0 auto;
+    width: 105px;
+    height: 105px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #77B4A0;
+    box-shadow: 0 0 20px 10px #77B4A0;
+    border-radius: 100%;
+    border: 5px solid #351E29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.15s, background-color 0.15s, box-shadow 0.15s, width 0.15s, height 0.15s;
+}
+
+#globalContent #sideBar #logOutElement a img{
+    width: 60px;
+    height: 60px;
+    filter: invert(100%);
+}
+
+#globalContent #sideBar #logOutElement a:hover{
+    background-color: #D2353A;
+    box-shadow: 0 0 20px 10px #D2353A;
+}
+
+#globalContent #sideBar #logOutElement a:hover img{
+    filter: invert(0%);
+}
+
+#globalContent #sideContent{
+    width: 83%;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    position: absolute;
+    right: 0;
+}

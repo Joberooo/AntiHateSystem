@@ -3,7 +3,7 @@ import json
 
 
 def get_parm(name: string):
-    with open("../settings.json", "r") as read_file:
+    with open("../antihate/settings/settings.json", "r") as read_file:
         try:
             json_file = json.load(read_file)
             return json_file[name]
@@ -12,13 +12,11 @@ def get_parm(name: string):
 
 
 def set_parm(key: string, value: string):
-    with open("../settings.json", "r") as read_file:
+    with open("../antihate/settings/settings.json", "r") as read_file:
         json_file = json.load(read_file)
         json_file[key] = value
-        with open('../settings.json', 'w') as f:
+        with open('../antihate/settings/settings.json', 'w') as f:
             json.dump(json_file, f, indent=4)
             return None
 
 
-class SettingsFile:
-    pass
