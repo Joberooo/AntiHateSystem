@@ -1,4 +1,5 @@
 import smtplib
+from email.message import EmailMessage
 
 from settings.settings import get_parm
 
