@@ -9,22 +9,22 @@ app = Flask(__name__)
 def saveSettings(user_email=None, collect_interval=None, analysis_interval=None,
                  limit_hate_ratio=None, limit_hate_sum=None, list_len=None):
     set_parm("user_email", user_email)
-    set_parm("collect_interval", collect_interval)
-    set_parm("analysis_interval", analysis_interval)
-    set_parm("limit_hate_ratio", limit_hate_ratio)
-    set_parm("limit_hate_sum", limit_hate_sum)
-    set_parm("list_len", list_len)
+    set_parm("collect_interval", int(collect_interval))
+    set_parm("analysis_interval", float(analysis_interval) * 60)
+    set_parm("limit_hate_ratio", float(limit_hate_ratio))
+    set_parm("limit_hate_sum", int(limit_hate_sum))
+    set_parm("list_len", int(list_len))
     return redirect("/clientPanel")
 
 
 @app.route("/settings")
 def settings():
     user_email = get_parm("user_email")
-    collect_interval = get_parm("collect_interval")
-    analysis_interval = get_parm("analysis_interval")
-    limit_hate_ratio = get_parm("limit_hate_ratio")
-    limit_hate_sum = get_parm("limit_hate_sum")
-    list_len = get_parm("list_len")
+    collect_interval = int(get_parm("collect_interval"))
+    analysis_interval = float(get_parm("analysis_interval")) / 60
+    limit_hate_ratio = float(get_parm("limit_hate_ratio"))
+    limit_hate_sum = int(get_parm("limit_hate_sum"))
+    list_len = int(get_parm("list_len"))
     return render_template("settings.html", user_email=user_email, collect_interval=collect_interval,
                            analysis_interval=analysis_interval, limit_hate_ratio=limit_hate_ratio,
                            limit_hate_sum=limit_hate_sum, list_len=list_len)
