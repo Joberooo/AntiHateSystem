@@ -3,8 +3,7 @@
     "server_pass": "test12345test",
     "user_email": "norbert.waszkowiak@gmail.com",
     "csv_file_name": "../data.csv",
-    "collect_interval": 5,
-    "analysis_interval": 60,
-    "limit_hate_ratio": 0.7,
-    "limit_hate_sum": 10
+    "collect_interval": 10,
+    "analisys_interval": 10,
+    "list_len": 100
 }
