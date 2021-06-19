@@ -1,0 +1,56 @@
+#hateElement{
+    width: calc(100% - 100px);
+    box-sizing: border-box;
+    margin: 50px 50px 0 50px;
+    padding: 20px 50px;
+    background-color: #F5F3F5;
+    border-radius: 25px;
+    box-shadow: 0 0 10px #F5F3F5;
+    color: #351E29;
+    display: block;
+    overflow: hidden;
+}
+
+#hateElement #hateTitle{
+    display: block;
+    margin: 0 0 20px 0;
+    padding: 0;
+    float: left;
+    font-size: 1.3em;
+    border-bottom: 1px solid #D2353A;
+}
+
+#hateElement #hateDesc{
+    display: block;
+    margin: 0 0 20px 0;
+    padding: 0;
+    float: left;
+    width: 100%;
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+#hateElement #hateUrl{
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: right;
+    font-size: 1em;
+    text-align: right;
+}
+
+#hateElement #hateUrl #goToButton{
+    color: #F5F3F5;
+    background: #351E29;
+    font-size: 1em;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: background-color 0.15s;
+    border: none;
+    box-shadow: 0 0 15px #5c5c5c;
+}
+
+#hateElement #hateUrl #goToButton:hover{
+    background: #D2353A;
+}

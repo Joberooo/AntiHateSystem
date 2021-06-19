@@ -23,7 +23,23 @@
         </div>
     </div>
     <div id="sideContent">
-
+        {% for i in range(0, 6)%}
+            <div id="hateElement">
+                <div id="hateTitle">
+                    {{mat_title[i]}}
+                </div>
+                <div id="hateDesc">
+                    {{mat_desc[i]}}
+                </div>
+                <div id="hateUrl">
+                    <a href={{mat_url[i]}}>
+                        <div id="goToButton">
+                            Dowiedz się więcej!
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

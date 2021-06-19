@@ -33,7 +33,6 @@ class EmailSender:
                 print("Successfully sent email to:", *self.receivers)
         except smtplib.SMTPException:
             print("Error: unable to send email")
-        self.__fin()
 
     def __clr_recv(self) -> None:
         self.receivers.clear()

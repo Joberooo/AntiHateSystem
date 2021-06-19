@@ -14,6 +14,15 @@ def take_json(number=None):
     return fromDate, toDate, offensiveData, hateData
 
 
+def take_json2():
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "./static/edu", "education.json")
+    data = json.load(open(json_url, encoding='utf-8'))
+    data = data['materials']
+    mat_title, mat_desc, mat_url = cutData2(data)
+    return mat_title, mat_desc, mat_url
+
+
 def cutData(data, number=None):
     fromDate = []
     toDate = []
@@ -41,6 +50,17 @@ def cutData(data, number=None):
                 offensiveData.append(data[i]['offensive_language'])
                 hateData.append(data[i]['hate_speech'])
     return fromDate, toDate, offensiveData, hateData
+
+
+def cutData2(data):
+    mat_title = []
+    mat_desc = []
+    mat_url = []
+    for i in data:
+        mat_title.append(i['mat_title'])
+        mat_desc.append(i['mat_desc'])
+        mat_url.append(i['mat_url'])
+    return mat_title, mat_desc, mat_url
 
 
 sApp = systemApp.instance()
@@ -77,7 +97,8 @@ def settings():
 
 @app.route("/hate")
 def hate():
-    return render_template("hate.html", content=None)
+    mat_title, mat_desc, mat_url = take_json2()
+    return render_template("hate.html", mat_title=mat_title, mat_desc=mat_desc, mat_url=mat_url)
 
 
 @app.route("/clientPanel/<number>")
