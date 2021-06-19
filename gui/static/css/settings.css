@@ -8,9 +8,9 @@
 }
 
 #settingsArea{
-    width: 90%;
+    width: 95%;
     background: #F5F3F5EE;
-    padding: 50px 50px 50px 50px;
+    padding: 50px 20px;
     margin: 0 auto;
     color: #351E29;
     box-sizing: border-box;
@@ -36,7 +36,7 @@
     float: left;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 0 50px;
+    padding: 0 20px;
 }
 
 #settingsArea #settingsData .singleData label{

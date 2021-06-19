@@ -27,6 +27,38 @@ li{
     list-style: none;
 }
 
+#changeTextSize{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    z-index: 999;
+    background-color: #351E29;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0 0 5px #77B4A0;
+}
+
+#changeTextSize #changeSizeOne{
+    font-size: 24px;
+}
+
+#changeTextSize #changeSizeTwo{
+    font-size: 30px;
+}
+
+#changeTextSize #changeSizeThree{
+    font-size: 34px;
+}
+
+#changeTextSize a{
+    height: 50px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    padding: 0 10px 0 15px;
+}
+
 #globalContent{
     width: 100%;
     height: 100vh;
@@ -35,7 +67,7 @@ li{
 }
 
 #globalContent #sideBar{
-    width: 15%;
+    width: 17%;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -203,7 +235,7 @@ li{
 }
 
 #globalContent #sideContent{
-    width: 85%;
+    width: 83%;
     height: 100vh;
     margin: 0;
     padding: 20px;
