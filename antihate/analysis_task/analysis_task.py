@@ -76,8 +76,8 @@ class AnalysisTask:
             }
         json_data["stats"].append(
             {
-                "from_date": from_date.strftime('%m/%d/%Y %H:%M:%S'),
-                "to_date": to_date.strftime('%m/%d/%Y %H:%M:%S'),
+                "from_date": from_date.isoformat(),
+                "to_date": to_date.isoformat(),
                 "offensive_language": offensive_language_counter,
                 "hate_speech": hate_speech_counter,
                 "data": rows_with_hate
