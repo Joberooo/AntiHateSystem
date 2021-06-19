@@ -2,6 +2,22 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href="../static/css/settings.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#saveSettings').bind('click', function() {
+              const par1 = document.getElementById("user_email").value;
+              const par2 = document.getElementById("collect_interval").value;
+              const par3 = document.getElementById("analysis_interval").value;
+              const par4 = document.getElementById("limit_hate_ratio").value;
+              const par5 = document.getElementById("limit_hate_sum").value;
+              const par6 = document.getElementById("list_len").value;
+              window.location.href = "/settings/save/" + par1 + "/" + par2 + "/" + par3 + "/" + par4 + "/" + par5 + "/" + par6;
+              alert('Ustawienia zapisane!');
+            return false;
+          });
+        });
+</script>
 {% endblock stylesheet %}
 
 {% block content %}
@@ -23,7 +39,27 @@
         </div>
     </div>
     <div id="sideContent">
+        <div id="settingsArea">
+            <label for="user_email">Mail:</label>
+            <input type="text" name="user_email" id="user_email" value='{{user_email}}'/>
 
+            <label for="collect_interval">collect_interval:</label>
+            <input type="text" name="collect_interval" id="collect_interval" value='{{collect_interval}}'/>
+
+            <label for="analysis_interval">analysis_interval:</label>
+            <input type="text" name="analysis_interval" id="analysis_interval" value='{{analysis_interval}}'/>
+
+            <label for="limit_hate_ratio">limit_hate_ratio:</label>
+            <input type="text" name="limit_hate_ratio" id="limit_hate_ratio" value='{{limit_hate_ratio}}'/>
+
+            <label for="limit_hate_sum">limit_hate_sum:</label>
+            <input type="text" name="limit_hate_sum" id="limit_hate_sum" value='{{limit_hate_sum}}'/>
+
+            <label for="list_len">list_len:</label>
+            <input type="text" name="list_len" id="list_len" value='{{list_len}}'/>
+
+            <a class="button abuse" href=# id=saveSettings>Zpisz</a>
+        </div>
     </div>
 </div>
 {% endblock content %}

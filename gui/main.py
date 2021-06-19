@@ -1,11 +1,33 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+from settings.settings import get_parm, set_parm
 
 app = Flask(__name__)
 
 
+@app.route(
+    '/settings/save/<user_email>/<collect_interval>/<analysis_interval>/<limit_hate_ratio>/<limit_hate_sum>/<list_len>')
+def saveSettings(user_email=None, collect_interval=None, analysis_interval=None,
+                 limit_hate_ratio=None, limit_hate_sum=None, list_len=None):
+    set_parm("user_email", user_email)
+    set_parm("collect_interval", collect_interval)
+    set_parm("analysis_interval", analysis_interval)
+    set_parm("limit_hate_ratio", limit_hate_ratio)
+    set_parm("limit_hate_sum", limit_hate_sum)
+    set_parm("list_len", list_len)
+    return redirect("/clientPanel")
+
+
 @app.route("/settings")
 def settings():
-    return render_template("settings.html", conten=None)
+    user_email = get_parm("user_email")
+    collect_interval = get_parm("collect_interval")
+    analysis_interval = get_parm("analysis_interval")
+    limit_hate_ratio = get_parm("limit_hate_ratio")
+    limit_hate_sum = get_parm("limit_hate_sum")
+    list_len = get_parm("list_len")
+    return render_template("settings.html", user_email=user_email, collect_interval=collect_interval,
+                           analysis_interval=analysis_interval, limit_hate_ratio=limit_hate_ratio,
+                           limit_hate_sum=limit_hate_sum, list_len=list_len)
 
 
 @app.route("/hate")
