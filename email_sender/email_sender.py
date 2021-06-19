@@ -16,13 +16,25 @@ class EmailSender:
         self.smtpObj.login(self.SYSTEM_MAIL, self.SYSTEM_PASS)
         self.sender = sender
 
-    def try_send(self, subject, message) -> None:
+    def try_send(self, records_number: int, subject="#HejtAlert!") -> None:
         if not self.receivers: raise Exception("Lack of receivers!")
 
         try:
-            full_message = f"Subject: {subject}\n\n{message}"
-            self.smtpObj.sendmail(self.sender, self.receivers, full_message)         
-            print("Successfully sent email to:", *self.receivers)
+            with open('alert_content.html', 'r') as file:
+                content = file.read()
+
+            for receiver in self.receivers:
+
+                msg = EmailMessage()
+                msg['Subject'] = subject
+                msg['From'] = self.sender
+                msg['To'] = receiver
+
+                msg.set_content(content, subtype='html')
+
+                self.smtpObj.send_message(msg)
+
+                print("Successfully sent email to:", *self.receivers)
         except smtplib.SMTPException:
             print("Error: unable to send email")
         self.__fin()
