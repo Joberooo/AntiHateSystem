@@ -3,9 +3,9 @@
     "server_pass": "test12345test",
     "user_email": "barczaczek@gmail.com",
     "csv_file_name": "../data.csv",
-    "collect_interval": "5",
-    "analysis_interval": "60",
-    "limit_hate_ratio": "0.7",
-    "limit_hate_sum": "5",
-    "list_len": "100"
+    "collect_interval": 6,
+    "analysis_interval": 120.0,
+    "limit_hate_ratio": 0.71,
+    "limit_hate_sum": 6,
+    "list_len": 110
 }

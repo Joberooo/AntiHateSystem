@@ -39,26 +39,40 @@
         </div>
     </div>
     <div id="sideContent">
-        <div id="settingsArea">
-            <label for="user_email">Mail:</label>
-            <input type="text" name="user_email" id="user_email" value='{{user_email}}'/>
-
-            <label for="collect_interval">collect_interval:</label>
-            <input type="text" name="collect_interval" id="collect_interval" value='{{collect_interval}}'/>
-
-            <label for="analysis_interval">analysis_interval:</label>
-            <input type="text" name="analysis_interval" id="analysis_interval" value='{{analysis_interval}}'/>
-
-            <label for="limit_hate_ratio">limit_hate_ratio:</label>
-            <input type="text" name="limit_hate_ratio" id="limit_hate_ratio" value='{{limit_hate_ratio}}'/>
-
-            <label for="limit_hate_sum">limit_hate_sum:</label>
-            <input type="text" name="limit_hate_sum" id="limit_hate_sum" value='{{limit_hate_sum}}'/>
-
-            <label for="list_len">list_len:</label>
-            <input type="text" name="list_len" id="list_len" value='{{list_len}}'/>
-
-            <a class="button abuse" href=# id=saveSettings>Zpisz</a>
+        <div id="flexSideContent">
+            <div id="settingsArea">
+                <div id="settingsData">
+                    <div class="singleData">
+                        <label for="user_email">Mail:</label>
+                        <input type="email" name="user_email" id="user_email" value='{{user_email}}'/>
+                    </div>
+                    <div class="singleData">
+                        <label for="collect_interval">Interwał zbierania hejtu [sekundy]:</label>
+                        <input type="number" name="collect_interval" id="collect_interval" value='{{collect_interval}}' min="1" max="60" step="1"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="analysis_interval">Interwał analizowania hejtu [minuty]:</label>
+                        <input type="number" name="analysis_interval" id="analysis_interval" value='{{analysis_interval}}' min="2" max="360" step="1"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="limit_hate_ratio">Próg klasyfikowania jako hejt:</label>
+                        <input type="number" name="limit_hate_ratio" id="limit_hate_ratio" value='{{limit_hate_ratio}}' min="0.1" max="0.99" step="0.01"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="limit_hate_sum">Próg ilościowy hejtu:</label>
+                        <input type="number" name="limit_hate_sum" id="limit_hate_sum" value='{{limit_hate_sum}}' min="3" max="100" step="1"/>
+                    </div>
+                    <div class="singleData">
+                        <label for="list_len">Liczba zapamiętanych hejtów:</label>
+                        <input type="number" name="list_len" id="list_len" value='{{list_len}}' min="100" max="300" step="10"/>
+                    </div>
+                </div>
+                <a class="button abuse" href=# id=saveSettings>
+                    <div id="saveButton">
+                        Zpisz
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
