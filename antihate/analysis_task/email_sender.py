@@ -1,6 +1,6 @@
 import smtplib
 
-from settings.settings import get_parm
+from antihate.settings.settings import get_parm
 
 
 class EmailSender:
@@ -25,6 +25,9 @@ class EmailSender:
         except smtplib.SMTPException:
             print("Error: unable to send email")
         self.__fin()
+
+    def send_notification(self) -> None:
+        self.try_send("subject","message")
 
     def __clr_recv(self) -> None:
         self.receivers.clear()
