@@ -134,3 +134,4 @@ dmypy.json
 *.png
 *.txt
 *.csv
+stats_file.json
