@@ -1,4 +1,5 @@
 import asyncio
+import json
 import threading
 from datetime import datetime, timedelta
 from time import sleep
@@ -42,16 +43,57 @@ class Analysis:
             milliseconds=10)) if self.__last_datatime is None else self.__last_datatime
         mask = (df['Time'] > last) & (df['Time'] <= newest)
         sub_df = df.loc[mask]
-        if self.__analise_sub_data(sub_df):
-            self.__email_sender.try_send("Temat","nuu nu nu nu")
+        if self.__analise_sub_data(sub_df, last, newest):
+            self.__email_sender.try_send("Temat", "nuu nu nu nu")
 
-    def __analise_sub_data(self, df: pd.DataFrame):
+    def __analise_sub_data(self, df: pd.DataFrame, from_date, to_date):
         hate_sum = 0
 
         for row in df.itertuples():
             hate_ratio = row.offensive_language + row.hate_speech
             if hate_ratio >= self.__limit_hate_ratio:
                 hate_sum = hate_sum + 1
-        if hate_sum > self.__limit_hate_sum:
-            return True
+                if hate_sum >= self.__limit_hate_sum:
+                    self.__save_stats(df, from_date, to_date)
+                    return True
         return False
+
+    def __save_stats(self, df: pd.DataFrame, from_date, to_date):
+        rows_with_hate = []
+        offensive_language_counter = 0
+        hate_speech_counter = 0
+
+        for row in df.itertuples():
+            hate_ratio = row.offensive_language + row.hate_speech
+            if hate_ratio >= self.__limit_hate_ratio:
+                if row.offensive_language > row.hate_speech:
+                    offensive_language_counter = offensive_language_counter + 1
+                else:
+                    hate_speech_counter = hate_speech_counter + 1
+                rows_with_hate.append({
+                    "offensive_language": row.offensive_language,
+                    "hate_speech": row.hate_speech,
+                    "neither": row.neither,
+                    "text": row.text
+                })
+
+        try:
+            with open("../stats.json", "r") as read_file:
+                json_data = json.load(read_file)
+        except FileNotFoundError:
+            json_data = {
+                "stats": []
+            }
+        json_data["stats"].append(
+            {
+                "from_date": from_date.strftime('%m/%d/%Y %H:%M:%S'),
+                "to_date": to_date.strftime('%m/%d/%Y %H:%M:%S'),
+                "offensive_language": offensive_language_counter,
+                "hate_speech": hate_speech_counter,
+                "data": rows_with_hate
+            }
+        )
+        print(json_data)
+        with open('../stats.json', 'w') as f:
+            json.dump(json_data, f, indent=4)
+            return None
