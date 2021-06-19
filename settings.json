@@ -4,5 +4,6 @@
     "user_email": "norbert.waszkowiak@gmail.com",
     "csv_file_name": "../data.csv",
     "collect_interval": 10,
-    "analisys_interval": 10
+    "analisys_interval": 10,
+    "list_len": 100
 }
