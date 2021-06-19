@@ -26,7 +26,11 @@ class App:
 
     def __init_val(self):
         self.__analysis_task = AnalysisTask(
-            email_sender=EmailSender(),
+            email_sender=EmailSender(
+                system_email=get_parm("server_email"),
+                system_pass=get_parm("server_pass"),
+                user_mail=get_parm("user_email")
+            ),
             hate_sum_limit=get_parm("limit_hate_sum"),
             hate_ratio_limit=get_parm("limit_hate_ratio"),
             interval=get_parm("analysis_interval"),
