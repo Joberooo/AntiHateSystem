@@ -6,6 +6,6 @@
     "collect_interval": 5,
     "analysis_interval": 60,
     "limit_hate_ratio": 0.7,
-    "limit_hate_sum": 10,
+    "limit_hate_sum": 5,
     "list_len": 100
 }
