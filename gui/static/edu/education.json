@@ -1,0 +1,34 @@
+{
+  "materials": [
+    {
+      "mat_title": "Cyberprzemoc. Włącz blokadę na nękanie. Poradnik dla rodziców",
+      "mat_desc": "Czym jest cyberbullying? Jak uchronić swoje dziecko, aby nie stało się ofiarą cyberprzemocy? A co zrobić, gdy odkryjesz, że Twój syn lub córka są sprawcami przemocy w sieci? Odpowiedzi na te pytania znajdziesz w najnowszym poradniku Akademii NASK. To lektura obowiązkowa dla każdego rodzica. ",
+      "mat_url": "https://akademia.nask.pl/publikacje/Poradnik_cyberprzemoc_www.pdf"
+    },
+    {
+      "mat_title": "Raport z badań \"Nastolatki 3.0\"",
+      "mat_desc": "Online non-stop – tak wygląda życie zdecydowanej większości polskich nastolatków. Jak i po co korzystają z sieci? Odpowiedzi na te pytania przynosi raport z najnowszego badania Państwowego Instytutu Badawczego NASK.",
+      "mat_url": "https://www.nask.pl/download/30/4069/RAPORTNASTOLATKI3online.pdf"
+    },
+    {
+      "mat_title": "Raport z badań Rodzice \"Nastolatków 3.0\"",
+      "mat_desc": "Współczesne dzieciństwo różni się zasadniczo od dzieciństwa pokolenia rodziców. Jak dorośli cyfrowi imigranci, wychowani w innych czasach radzą sobie z problemami pokolenia cyfrowych tubylców? Jak odnajdują się w świecie technologii, którego muszą uczyć się na bieżąco aby nadążyć za swoimi pociechami. Na te i inne pytania odpowiedzi szukali autorzy raportu z ogólnopolskiego badania społecznego „ Rodzice nastolatków 3.0”. ",
+      "mat_url": "https://www.nask.pl/download/30/3594/RAPORTDOROSLI3ONLINEp-skompresowany.pdf"
+    },
+    {
+      "mat_title": "\"Nie obraź się, ale\"",
+      "mat_desc": "Książka o presji wśród kobiet przez pryzmat internetu.",
+      "mat_url": "https://www.nieobrazsieale.pl/"
+    },
+    {
+      "mat_title": "\"Jak zapanować nad hejtem w internecie?\"",
+      "mat_desc": "Artykuł dotyczący zjawiska hejtu w internecie",
+      "mat_url": "https://www.digitalpoland.org/blog/2021/02/jak-zapanowac-nad-hejtem-w-internecie"
+    },
+    {
+      "mat_title": "\"HEJTSTOP\"",
+      "mat_desc": "Witryna do anonimowefgo zgłaszania zjawisk hejtu w sieci",
+      "mat_url": "http://hejtstop.pl/"
+    }
+  ]
+}
