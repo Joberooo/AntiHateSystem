@@ -12,4 +12,7 @@ def test_core():
     collector.stop()
     analysis.stop()
 
-test_core()
+if __name__ == "__main__":
+    test_core()
+
+

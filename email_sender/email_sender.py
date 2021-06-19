@@ -7,7 +7,7 @@ from settings.settings import get_parm
 class EmailSender:
     SYSTEM_MAIL = get_parm("server_email")
     SYSTEM_PASS = get_parm("server_pass")
-    USER_MAIL = get_parm("receive_email")
+    USER_MAIL = get_parm("user_email")
 
     def __init__(self, receivers=None, sender="Admin@AntiHateSystem.com") -> None:
 
