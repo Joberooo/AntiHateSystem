@@ -1,11 +1,11 @@
 {
     "server_email": "coddiershack4lem@gmail.com",
     "server_pass": "test12345test",
-    "user_email": "barczaczek@gmail.com",
+    "user_email": "norbert.waszkowiak@gmail.com",
     "csv_file_name": "../data.csv",
-    "collect_interval": 6,
-    "analysis_interval": 120.0,
-    "limit_hate_ratio": 0.71,
-    "limit_hate_sum": 6,
-    "list_len": 110
+    "collect_interval": 7,
+    "analysis_interval": 180.0,
+    "limit_hate_ratio": 0.72,
+    "limit_hate_sum": 7,
+    "list_len": 120
 }
