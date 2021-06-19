@@ -19,19 +19,61 @@
       borderWidth: 0
     };
 
+    function changeLabels(data){
+        var output_array = []
+        for(var element in data){
+            var element_parsed = parseInt(data[element] * 1000)
+            var element_data = new Date(element_parsed)
+            var year = element_data.getFullYear()
+            var month = element_data.getMonth()
+            var day = element_data.getDay()
+            var hour = element_data.getHours()
+            var minutes = element_data.getMinutes()
+            var seconds = element_data.getSeconds()
+            if(month < 10) month = "0" + month
+            if(day < 10) day = "0" + day
+            if(hour < 10) hour = "0" + hour
+            if(minutes < 10) minutes = "0" + minutes
+            if(seconds < 10) seconds = "0" + seconds
+            output_array.push(day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds)
+        }
+        return output_array
+    }
+
     var planetData = {
-      labels: {{toDate}},
+      labels: changeLabels({{toDate}}),
       datasets: [offensiveData, hateData]
     };
 
     var chartOptions = {
-      scales: {
-        xAxes: [{
-          barPercentage: 1,
-          categoryPercentage: 0.6
-        }]
-      }
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 30
+                    }
+                }
+            }
+        }
     };
+</script>
+
+<script type=text/javascript>
+        $(function() {
+          $('a#previousButton').bind('click', function() {
+              var x = {{number}} - 1
+              window.location.href = "/clientPanel/" + x
+            return false;
+          });
+        });
+
+        $(function() {
+          $('a#nextButton').bind('click', function() {
+              var x = {{number}} + 1
+              window.location.href = "/clientPanel/" + x
+            return false;
+          });
+        });
 </script>
 {% endblock stylesheet %}
 
@@ -43,7 +85,7 @@
             <h4>Anti Hate System</h4>
         </div>
         <ul>
-            <a href="/clientPanel" class="activeElement"><li><div class="imgObject"><img src="../static/images/statistic-icon.svg"  alt="statistic-icon"/></div><p>Statystyka</p></li></a>
+            <a href="/clientPanel/0" class="activeElement"><li><div class="imgObject"><img src="../static/images/statistic-icon.svg"  alt="statistic-icon"/></div><p>Statystyka</p></li></a>
             <a href="/hate"><li><div class="imgObject"><img src="../static/images/question-icon.svg"  alt="question-icon"/></div><p>#ogarnijHejt</p></li></a>
             <a href="/settings"><li><div class="imgObject"><img src="../static/images/settings-icon.svg"  alt="settings-icon"/></div><p>Ustawienia</p></li></a>
         </ul>
@@ -54,18 +96,35 @@
         </div>
     </div>
     <div id="sideContent">
-        <div id="chartArea">
-
-            <canvas id="myChart" max-width="600" max-height="400"></canvas>
-            <script>
-                var canvas = document.getElementById("myChart");
-
-                var barChart = new Chart(canvas, {
-                  type: 'bar',
-                  data: planetData,
-                  options: chartOptions
-                });
-            </script>
+        <div id="contentArea">
+            <div id="chartArea">
+                <canvas id="myChart"></canvas>
+                <script>
+                    var canvas = document.getElementById("myChart");
+                    changeLabels({{toDate}})
+                    var barChart = new Chart(canvas, {
+                      type: 'bar',
+                      data: planetData,
+                      options: chartOptions
+                    });
+                </script>
+            </div>
+            <div id="navigationArea">
+                {% if previous is sameas true %}
+                <a href="#" id="previousButton">
+                    <div id="previous">
+                        Wstecz
+                    </div>
+                </a>
+                {% endif %}
+                {% if next is sameas true %}
+                <a href="#" id="nextButton">
+                    <div id="next">
+                        Dalej
+                    </div>
+                </a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

@@ -27,7 +27,7 @@
             <h4>Anti Hate System</h4>
         </div>
         <ul>
-            <a href="/clientPanel"><li><div class="imgObject"><img src="../static/images/statistic-icon.svg"  alt="statistic-icon"/></div><p>Statystyka</p></li></a>
+            <a href="/clientPanel/0"><li><div class="imgObject"><img src="../static/images/statistic-icon.svg"  alt="statistic-icon"/></div><p>Statystyka</p></li></a>
             <a href="/hate"><li><div class="imgObject"><img src="../static/images/question-icon.svg"  alt="question-icon"/></div><p>#ogarnijHejt</p></li></a>
             <a href="/settings" class="activeElement"><li><div class="imgObject"><img src="../static/images/settings-icon.svg"  alt="settings-icon"/></div><p>Ustawienia</p></li></a>
         </ul>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="singleData">
                         <label for="analysis_interval">Interwał analizowania hejtu [minuty]:</label>
-                        <input type="number" name="analysis_interval" id="analysis_interval" value='{{analysis_interval}}' min="2" max="360" step="1"/>
+                        <input type="number" name="analysis_interval" id="analysis_interval" value='{{analysis_interval}}' min="1" max="360" step="1"/>
                     </div>
                     <div class="singleData">
                         <label for="limit_hate_ratio">Próg klasyfikowania jako hejt:</label>

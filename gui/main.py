@@ -5,25 +5,41 @@ from antihate.settings.settings import get_parm, set_parm, json
 from antihate.app import App as systemApp
 
 
-def take_json():
+def take_json(number=None):
     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
     json_url = os.path.join(SITE_ROOT, "../antihate", "stats_file.json")
     data = json.load(open(json_url))
     data = data['stats']
-    fromDate, toDate, offensiveData, hateData = cutData(data)
+    fromDate, toDate, offensiveData, hateData = cutData(data, number)
     return fromDate, toDate, offensiveData, hateData
 
 
-def cutData(data):
+def cutData(data, number=None):
     fromDate = []
     toDate = []
     offensiveData = []
     hateData = []
-    for i in data:
-        fromDate.append(dateutil.parser.parse(i['from_date']).timestamp())
-        toDate.append(dateutil.parser.parse(i['to_date']).timestamp())
-        offensiveData.append(i['offensive_language'])
-        hateData.append(i['hate_speech'])
+    start_step = int(number) * 10
+    end_step = (int(number) + 1) * 10
+    if start_step > len(data):
+        for i in data:
+            fromDate.append(dateutil.parser.parse(i['from_date']).timestamp())
+            toDate.append(dateutil.parser.parse(i['to_date']).timestamp())
+            offensiveData.append(i['offensive_language'])
+            hateData.append(i['hate_speech'])
+    else:
+        if end_step > len(data):
+            for i in range(start_step, len(data)):
+                fromDate.append(dateutil.parser.parse(data[i]['from_date']).timestamp())
+                toDate.append(dateutil.parser.parse(data[i]['to_date']).timestamp())
+                offensiveData.append(data[i]['offensive_language'])
+                hateData.append(data[i]['hate_speech'])
+        else:
+            for i in range(start_step, end_step):
+                fromDate.append(dateutil.parser.parse(data[i]['from_date']).timestamp())
+                toDate.append(dateutil.parser.parse(data[i]['to_date']).timestamp())
+                offensiveData.append(data[i]['offensive_language'])
+                hateData.append(data[i]['hate_speech'])
     return fromDate, toDate, offensiveData, hateData
 
 
@@ -43,7 +59,7 @@ def saveSettings(user_email=None, collect_interval=None, analysis_interval=None,
     set_parm("limit_hate_sum", int(limit_hate_sum))
     set_parm("list_len", int(list_len))
     sApp.reset()
-    return redirect("/clientPanel")
+    return redirect("/clientPanel/0")
 
 
 @app.route("/settings")
@@ -64,15 +80,21 @@ def hate():
     return render_template("hate.html", content=None)
 
 
-@app.route("/clientPanel")
-def client():
-    fromDate, toDate, offensiveData, hateData = take_json()
-    print(fromDate)
-    print(toDate)
-    print(offensiveData)
-    print(hateData)
-    return render_template("clientPanel.html", fromDate=fromDate, toDate=toDate,
-                           offensiveData=offensiveData, hateData=hateData)
+@app.route("/clientPanel/<number>")
+def client(number=None):
+    fromDate, toDate, offensiveData, hateData = take_json(number)
+    if len(fromDate) == 10 and int(number) == 0:
+        return render_template("clientPanel.html", fromDate=fromDate, toDate=toDate,
+                               offensiveData=offensiveData, hateData=hateData, previous=False, next=True, number=number)
+    if len(fromDate) != 10 and int(number) == 0:
+        return render_template("clientPanel.html", fromDate=fromDate, toDate=toDate,
+                               offensiveData=offensiveData, hateData=hateData, previous=False, next=False, number=number)
+    if len(fromDate) != 10 and int(number) != 0:
+        return render_template("clientPanel.html", fromDate=fromDate, toDate=toDate,
+                               offensiveData=offensiveData, hateData=hateData, previous=True, next=False, number=number)
+    if len(fromDate) == 10 and int(number) != 0:
+        return render_template("clientPanel.html", fromDate=fromDate, toDate=toDate,
+                               offensiveData=offensiveData, hateData=hateData, previous=True, next=True, number=number)
 
 
 @app.route("/loginPanel")

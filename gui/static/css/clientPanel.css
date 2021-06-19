@@ -1,0 +1,59 @@
+#sideContent #contentArea{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#sideContent #contentArea #chartArea{
+    width: 100%;
+    margin: 0;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+#sideContent #contentArea #chartArea #myChart{
+    max-width: 100%;
+}
+
+#sideContent #contentArea #navigationArea{
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#sideContent #contentArea #navigationArea #previous{
+    display: block;
+    float: left;
+    color: #F5F3F5;
+    background: #D2353A;
+    font-size: 1em;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: background-color 0.15s;
+    border: none;
+    box-shadow: 0 0 15px #5c5c5c;
+}
+
+#sideContent #contentArea #navigationArea #previous:hover{
+    background: #77B4A0;
+}
+
+#sideContent #contentArea #navigationArea #next{
+    display: block;
+    float: right;
+    color: #F5F3F5;
+    background: #D2353A;
+    font-size: 1em;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    transition: background-color 0.15s;
+    border: none;
+    box-shadow: 0 0 15px #5c5c5c;
+}
+
+#sideContent #contentArea #navigationArea #next:hover{
+    background: #77B4A0;
+}
