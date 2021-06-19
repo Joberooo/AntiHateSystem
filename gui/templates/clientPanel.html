@@ -35,7 +35,10 @@
             if(hour < 10) hour = "0" + hour
             if(minutes < 10) minutes = "0" + minutes
             if(seconds < 10) seconds = "0" + seconds
-            output_array.push(day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds)
+            var text = []
+            text.push( day + "/" + month + "/" + year)
+            text.push(hour + ":" + minutes + ":" + seconds)
+            output_array.push( text )
         }
         return output_array
     }
