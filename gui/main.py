@@ -1,6 +1,25 @@
+import os
 from flask import Flask, render_template, redirect
-from antihate.settings.settings import get_parm, set_parm
+from antihate.settings.settings import get_parm, set_parm, json
 from antihate.app import App as systemApp
+
+
+def take_json():
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "../antihate", "stats_file.json")
+    data = json.load(open(json_url))
+    data = data['stats']
+    data = cutData(data)
+    return data
+
+
+def cutData(data):
+    elements = []
+    for i in data:
+        new = [i['from_date'], i['to_date'], i['offensive_language'], i['hate_speech']]
+        elements.append(new)
+    return elements
+
 
 sApp = systemApp.instance()
 sApp.start()
@@ -41,7 +60,8 @@ def hate():
 
 @app.route("/clientPanel")
 def client():
-    return render_template("clientPanel.html", content=None)
+    data = take_json()
+    return render_template("clientPanel.html", hateData=data)
 
 
 @app.route("/loginPanel")

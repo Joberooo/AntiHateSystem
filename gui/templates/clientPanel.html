@@ -23,7 +23,9 @@
         </div>
     </div>
     <div id="sideContent">
-
+        {% for element in hateData %}
+            <p>{{element[0]}}-{{element[1]}}-{{element[2]}}-{{element[3]}}</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}
