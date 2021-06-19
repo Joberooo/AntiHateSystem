@@ -40,7 +40,7 @@ class App:
                     screen_capture=ScreenCapture(
                         image_path=get_parm("picture_path")
                     ),
-                    tesseract_path="/usr/bin/tesseract",
+                    tesseract_path="C:/Program Files/Tesseract-OCR/tesseract",
                 )
             ),
             interval=get_parm("collect_interval"),
@@ -48,17 +48,19 @@ class App:
         )
 
     def start(self):
+        print("Start antiHate app...")
         self.__analysis_task.start()
         self.__collector_task.start()
 
     def stop(self):
+        print("Stop antiHate app.")
         self.__analysis_task.stop()
         self.__collector_task.stop()
 
     def reset(self):
-        self.start()
-        self.__init_val()
         self.stop()
+        self.__init_val()
+        self.start()
 
 
 if __name__ == "__main__":

@@ -105,6 +105,6 @@ class AnalysisTask:
                     "neither": row.neither,
                     "text": row.text
                 })
-                print("rows_with_hate")
-                print(rows_with_hate)
+        print("rows_with_hate")
+        print(rows_with_hate)
         return rows_with_hate, offensive_language_counter, hate_speech_counter

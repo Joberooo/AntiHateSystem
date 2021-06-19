@@ -1,6 +1,9 @@
 from flask import Flask, render_template, redirect
-from settings.settings import get_parm, set_parm
+from antihate.settings.settings import get_parm, set_parm
+from antihate.app import App as systemApp
 
+sApp = systemApp.instance()
+sApp.start()
 app = Flask(__name__)
 
 
@@ -14,6 +17,7 @@ def saveSettings(user_email=None, collect_interval=None, analysis_interval=None,
     set_parm("limit_hate_ratio", float(limit_hate_ratio))
     set_parm("limit_hate_sum", int(limit_hate_sum))
     set_parm("list_len", int(list_len))
+    sApp.reset()
     return redirect("/clientPanel")
 
 
