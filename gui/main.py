@@ -1,4 +1,5 @@
 import os
+import dateutil.parser
 from flask import Flask, render_template, redirect
 from antihate.settings.settings import get_parm, set_parm, json
 from antihate.app import App as systemApp
@@ -9,16 +10,21 @@ def take_json():
     json_url = os.path.join(SITE_ROOT, "../antihate", "stats_file.json")
     data = json.load(open(json_url))
     data = data['stats']
-    data = cutData(data)
-    return data
+    fromDate, toDate, offensiveData, hateData = cutData(data)
+    return fromDate, toDate, offensiveData, hateData
 
 
 def cutData(data):
-    elements = []
+    fromDate = []
+    toDate = []
+    offensiveData = []
+    hateData = []
     for i in data:
-        new = [i['from_date'], i['to_date'], i['offensive_language'], i['hate_speech']]
-        elements.append(new)
-    return elements
+        fromDate.append(dateutil.parser.parse(i['from_date']).timestamp())
+        toDate.append(dateutil.parser.parse(i['to_date']).timestamp())
+        offensiveData.append(i['offensive_language'])
+        hateData.append(i['hate_speech'])
+    return fromDate, toDate, offensiveData, hateData
 
 
 sApp = systemApp.instance()
@@ -60,8 +66,13 @@ def hate():
 
 @app.route("/clientPanel")
 def client():
-    data = take_json()
-    return render_template("clientPanel.html", hateData=data)
+    fromDate, toDate, offensiveData, hateData = take_json()
+    print(fromDate)
+    print(toDate)
+    print(offensiveData)
+    print(hateData)
+    return render_template("clientPanel.html", fromDate=fromDate, toDate=toDate,
+                           offensiveData=offensiveData, hateData=hateData)
 
 
 @app.route("/loginPanel")

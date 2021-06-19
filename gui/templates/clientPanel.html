@@ -2,6 +2,37 @@
 
 {% block stylesheet %}
 <link rel="stylesheet" href="../static/css/clientPanel.css">
+<script src="../static/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var offensiveData = {
+      label: 'Hejt w postaci ofensywnego języka',
+      data: {{offensiveData}},
+      backgroundColor: 'rgba(0, 99, 132, 0.6)',
+      borderWidth: 0
+    };
+
+    var hateData = {
+      label: 'Hejt w postaci mowy nienawiści',
+      data: {{hateData}},
+      backgroundColor: 'rgba(99, 132, 0, 0.6)',
+      borderWidth: 0
+    };
+
+    var planetData = {
+      labels: {{toDate}},
+      datasets: [offensiveData, hateData]
+    };
+
+    var chartOptions = {
+      scales: {
+        xAxes: [{
+          barPercentage: 1,
+          categoryPercentage: 0.6
+        }]
+      }
+    };
+</script>
 {% endblock stylesheet %}
 
 {% block content %}
@@ -23,9 +54,19 @@
         </div>
     </div>
     <div id="sideContent">
-        {% for element in hateData %}
-            <p>{{element[0]}}-{{element[1]}}-{{element[2]}}-{{element[3]}}</p>
-        {% endfor %}
+        <div id="chartArea">
+
+            <canvas id="myChart" max-width="600" max-height="400"></canvas>
+            <script>
+                var canvas = document.getElementById("myChart");
+
+                var barChart = new Chart(canvas, {
+                  type: 'bar',
+                  data: planetData,
+                  options: chartOptions
+                });
+            </script>
+        </div>
     </div>
 </div>
 {% endblock content %}
