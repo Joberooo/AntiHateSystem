@@ -11,6 +11,8 @@ Jest ona kierowana przede wszystkim do rodziców i opiekunów dzieci oraz nastol
 *   [Adrian Malik](https://github.com/h4dri "Git")
 *   [Norbert Waszkowiak](https://github.com/kajkitsu "Git")
 
+[![AHS](https://github.com/Joberooo/AntiHateSystem/blob/main/images/home.png)](https://www.youtube.com/watch?v=FExET-o8meo "Anti Hate System - AHS")
+
 
 ## Zasada działania i funkcjonalności
 Aplikacja działa w formie lokalnie uruchamianego serwera Flask. Cyklicznie sprawdza ekran w poszukiwaniu ciągów tekstowych zawierających sformułowania obraźliwe.
